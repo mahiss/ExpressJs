@@ -14,8 +14,12 @@ url http://localhost:3000
 
 https://www.youtube.com/watch?v=ll2tY6KH8Tk
 
-mongod
-
 mongo
+
+use customerapp
+
+db.createCollection('users')
+
+mongod
 
 net start MongoDB
