@@ -1,0 +1,47 @@
+<% include partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-6 col-sm-4">
+            <h1><%=title %></h1>
+
+            <!-- expressValidator code -->
+            <% if(errors != undefined){ %>
+                <div class="alert alert-danger">
+                    <% errors.forEach(function(error){ %>
+                       <%= error.msg %><br/>
+                    <% }) %>
+                </div>
+            <% } %>
+
+            <form method="POST" action="/users/add">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name="email" class="form-control">
+                </div>
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+        </div>
+        <div class="col-6 col-sm-4">
+            <br/><br/>
+            <!--  list users -->
+            <ul class="list-group">
+                <% users.forEach(function(user){ %>
+                <li class="list-group-item"><%= user.first_name %> <%= user.last_name %>
+                    <button type="button" class="close" aria-label="Close" data-id="<%= user._id %>">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+                <% }) %>
+            </ul>
+        </div>
+    </div>
+</div>
+<% include partials/footer %>
