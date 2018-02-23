@@ -19,7 +19,3 @@ mongo
 use customerapp
 
 db.createCollection('users')
-
-mongod
-
-net start MongoDB
